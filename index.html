@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ── Primary SEO ─────────────────────────────────────── -->
+    <title>Louay Mannai — Full Stack Developer & Data Analyst | Tunis, Tunisia</title>
+    <meta name="description" content="Louay Mannai is a Full Stack Developer and Business Intelligence specialist based in Tunis, Tunisia. Expert in Angular, NestJS, React, Azure (AZ-900 certified), and Power BI. Available for remote full-time roles and freelance projects.">
+    <meta name="keywords" content="Louay Mannai, full stack developer Tunisia, Angular developer, NestJS developer, React developer, Power BI developer, Azure developer, data analyst Tunis, business intelligence developer, TypeScript developer, freelance developer Tunisia">
+    <meta name="author" content="Louay Mannai">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <link rel="canonical" href="https://lel-lem.github.io/">
+
+    <!-- ── Open Graph ───────────────────────────────────────── -->
+    <meta property="og:site_name" content="Louay Mannai Portfolio">
+    <meta property="og:title" content="Louay Mannai — Full Stack Developer & Data Analyst">
+    <meta property="og:description" content="Full Stack Developer & Business Intelligence specialist based in Tunis, Tunisia. Building scalable web apps with Angular, NestJS, React, and Azure. AZ-900 certified.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://lel-lem.github.io/">
+    <meta property="og:locale" content="en_US">
+
+    <!-- ── Twitter Card ─────────────────────────────────────── -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Louay Mannai — Full Stack Developer & Data Analyst">
+    <meta name="twitter:description" content="Full Stack Developer & BI specialist in Tunis. Angular · NestJS · React · Azure · Power BI. Open to remote opportunities.">
+
+    <!-- ── Structured Data ──────────────────────────────────── -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Louay Mannai",
+      "url": "https://lel-lem.github.io/",
+      "jobTitle": "Full Stack Developer & Data Analyst",
+      "description": "Full Stack Developer and Business Intelligence graduate specializing in Angular, NestJS, React, Azure cloud services, and Power BI reporting. AZ-900 certified. Based in Tunis, Tunisia and open to remote opportunities worldwide.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Tunis",
+        "addressCountry": "TN"
+      },
+      "sameAs": [
+        "https://github.com/MannaiLouay",
+        "https://www.linkedin.com/in/mannai-louay"
+      ],
+      "knowsAbout": [
+        "Angular", "NestJS", "React", "Ionic", "TypeScript", "JavaScript",
+        "Azure", "Power BI", "Python", "Docker", "MongoDB", "Node.js",
+        "Data Analysis", "Business Intelligence"
+      ],
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "FSEGT Tunis",
+        "description": "Faculty of Economics and Management of Tunis"
+      }
+    }
+    </script>
+
+    <!-- ── Fonts & Styles ────────────────────────────────────── -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+<!-- ── Skip Link ───────────────────────────────────────────── -->
+<a href="#terminal-content" class="skip-link">Skip to main content</a>
+
+<!-- ── Site Navigation Header ──────────────────────────────── -->
+<header class="site-header" role="banner">
+    <div class="site-header-inner">
+        <a href="#" class="site-logo" aria-label="Louay Mannai – go to top">
+            <span class="logo-prompt">~/</span><span class="logo-name">louay</span><span class="logo-cursor" aria-hidden="true"></span>
+        </a>
+
+        <nav class="site-nav" id="site-nav" role="navigation" aria-label="Main navigation">
+            <a href="#terminal-content" class="active">Terminal</a>
+            <!-- Add future sections here, e.g.: -->
+            <!-- <a href="#projects">Projects</a> -->
+            <!-- <a href="#blog">Blog</a>         -->
+            <!-- <a href="#contact">Contact</a>   -->
+        </nav>
+
+        <div class="nav-status" aria-label="Status: available for work">
+            <span class="nav-status-dot" aria-hidden="true"></span>
+            available
+        </div>
+
+        <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation menu">☰</button>
+    </div>
+</header>
+
+<!-- ── Terminal ─────────────────────────────────────────────── -->
+<main>
+    <div class="terminal-container" role="region" aria-label="Interactive terminal portfolio">
+        <div class="terminal-header">
+            <div class="terminal-buttons" aria-hidden="true">
+                <span class="btn-close"></span>
+                <span class="btn-minimize"></span>
+                <span class="btn-maximize"></span>
+            </div>
+            <div class="terminal-title" aria-label="Terminal session: louay at devmachine">louay@devmachine: ~/portfolio</div>
+        </div>
+
+        <div class="terminal-body" id="terminal-content" tabindex="-1" aria-live="polite" aria-atomic="false">
+        </div>
+    </div>
+</main>
+
+<!-- ── Scroll to Top ─────────────────────────────────────────── -->
+<button class="scroll-to-top" id="scrollToTop" aria-label="Scroll back to top of page" title="Back to top"></button>
+
+<script>
+    /* ── Navigation toggle (mobile) ─────────────────────────── */
+    const navToggle = document.getElementById('navToggle');
+    const siteNav   = document.getElementById('site-nav');
+
+    navToggle.addEventListener('click', () => {
+        const isOpen = siteNav.classList.toggle('open');
+        navToggle.setAttribute('aria-expanded', isOpen);
+        navToggle.textContent = isOpen ? '✕' : '☰';
+    });
+
+    /* Close nav when a link is clicked */
+    siteNav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            siteNav.classList.remove('open');
+            navToggle.setAttribute('aria-expanded', 'false');
+            navToggle.textContent = '☰';
+        });
+    });
+
+    /* ── Terminal Portfolio ──────────────────────────────────── */
+    class TerminalPortfolio {
+        constructor() {
+            this.terminal      = document.getElementById('terminal-content');
+            this.scrollToTopBtn = document.getElementById('scrollToTop');
+
+            this.currentStep   = 0;
+            this.typeSpeed     = 42;
+            this.commandDelay  = 900;
+            this.sectionDelay  = 1600;
+            this.scrollThreshold = 300;
+
+            this.commands = [
+                {
+                    type: 'command',
+                    text: 'whoami',
+                    delay: 1000
+                },
+                {
+                    type: 'section',
+                    title: '// profile',
+                    content: `
+                        <div class="profile-section">
+                            <div class="profile-card">
+                                <div class="profile-info">
+                                    <h1 class="name">Louay Mannai</h1>
+                                    <div class="role">Full Stack Developer &amp; Data Analyst</div>
+                                    <div class="location">📍 Tunis, Tunisia — open to remote</div>
+                                </div>
+                            </div>
+                        </div>
+                    `
+                },
+                {
+                    type: 'command',
+                    text: 'cat about.txt',
+                    delay: 1800
+                },
+                {
+                    type: 'section',
+                    title: '// about',
+                    content: `
+                        <div class="about-section">
+                            <p>I'm a <span class="highlight">Full Stack Developer</span> and <span class="highlight">Business Intelligence</span> graduate based in <span class="highlight">Tunis, Tunisia</span>. I build complete digital products — from performant, accessible frontends to scalable APIs, cloud infrastructure, and data pipelines.</p>
+                            <p>With hands-on experience in <span class="highlight">Angular, React, NestJS, Azure</span>, and <span class="highlight">Power BI</span>, I bridge the gap between engineering and analytics to deliver real business value. I care deeply about code quality, clean architecture, and shipping software that works reliably in production.</p>
+                            <p>
+                                ▸ Azure Cloud Fundamentals certified — <span class="highlight">AZ-900</span><br>
+                                ▸ B.Sc. Business Intelligence — <span class="highlight">FSEGT Tunis</span><br>
+                                ▸ Fluent in English &amp; French, Native Arabic<br>
+                                ▸ Open to full-time remote roles &amp; freelance projects worldwide
+                            </p>
+                        </div>
+                    `
+                },
+                {
+                    type: 'command',
+                    text: 'ls -la skills/',
+                    delay: 1800
+                },
+                {
+                    type: 'section',
+                    title: '// skills',
+                    content: `
+                        <div class="skills-header">
+                            <h2>Technical Skills</h2>
+                        </div>
+                        <div class="skills-grid">
+                            <div class="skill-card">
+                                <div class="skill-title">Frontend</div>
+                                <ul class="skill-list">
+                                    <li>Angular</li>
+                                    <li>React.js</li>
+                                    <li>Ionic</li>
+                                    <li>TypeScript / JavaScript</li>
+                                    <li>HTML / CSS</li>
+                                </ul>
+                            </div>
+                            <div class="skill-card">
+                                <div class="skill-title">Backend</div>
+                                <ul class="skill-list">
+                                    <li>NestJS</li>
+                                    <li>Express.js / Node.js</li>
+                                    <li>.NET / C#</li>
+                                    <li>Java</li>
+                                    <li>PHP</li>
+                                </ul>
+                            </div>
+                            <div class="skill-card">
+                                <div class="skill-title">Data &amp; BI</div>
+                                <ul class="skill-list">
+                                    <li>Power BI</li>
+                                    <li>Python (Pandas, Matplotlib)</li>
+                                    <li>Scikit-learn</li>
+                                    <li>SQL / Oracle</li>
+                                    <li>Excel / Power Automate</li>
+                                </ul>
+                            </div>
+                            <div class="skill-card">
+                                <div class="skill-title">Cloud &amp; DevOps</div>
+                                <ul class="skill-list">
+                                    <li>Azure (Functions, Blob, DevOps)</li>
+                                    <li>Docker</li>
+                                    <li>GitLab / Git</li>
+                                    <li>Firebase</li>
+                                    <li>Agile / Scrum</li>
+                                </ul>
+                            </div>
+                            <div class="skill-card">
+                                <div class="skill-title">Databases</div>
+                                <ul class="skill-list">
+                                    <li>MongoDB</li>
+                                    <li>Oracle DB</li>
+                                    <li>SQL Server</li>
+                                    <li>SharePoint</li>
+                                </ul>
+                            </div>
+                            <div class="skill-card">
+                                <div class="skill-title">Power Platform</div>
+                                <ul class="skill-list">
+                                    <li>Power Apps</li>
+                                    <li>Power BI</li>
+                                    <li>Power Automate</li>
+                                </ul>
+                            </div>
+                        </div>
+                    `
+                },
+                {
+                    type: 'command',
+                    text: 'cat experience.json',
+                    delay: 1800
+                },
+                {
+                    type: 'section',
+                    title: '// experience',
+                    content: `
+                        <div class="skills-header">
+                            <h2>Work Experience</h2>
+                        </div>
+                        <div class="projects-grid">
+                            <article class="project-card">
+                                <div class="project-info">
+                                    <div class="project-title">Atomart — Full Stack Developer (PFE)</div>
+                                    <div class="project-desc">
+                                        Feb 2023 – Jun 2023<br><br>
+                                        Built full-stack web and mobile applications using Angular &amp; NestJS deployed on Azure DevOps. Integrated Google Analytics, Mapbox API, and Azure Form Recognizer. Led feature demos for stakeholders and documented all APIs and configurations.
+                                    </div>
+                                    <div class="project-links">
+                                        <span style="color:var(--text-muted); font-size:12px;">Angular · NestJS · Ionic · Oracle · Azure · Mapbox · SharePoint</span>
+                                    </div>
+                                </div>
+                            </article>
+                            <article class="project-card">
+                                <div class="project-info">
+                                    <div class="project-title">Innovup — Full Stack Developer Intern</div>
+                                    <div class="project-desc">
+                                        Jun 2022 – Sep 2022<br><br>
+                                        Developed an ad management web platform and a cross-platform mobile app that lets users mark real-time danger zones on a live Mapbox map with Firebase push notifications.
+                                    </div>
+                                    <div class="project-links">
+                                        <span style="color:var(--text-muted); font-size:12px;">Angular · Express.js · MongoDB · Node.js · Ionic · Firebase · Mapbox</span>
+                                    </div>
+                                </div>
+                            </article>
+                            <article class="project-card">
+                                <div class="project-info">
+                                    <div class="project-title">HLI Group — Data Analyst Intern</div>
+                                    <div class="project-desc">
+                                        Jun 2021 – Sep 2021<br><br>
+                                        Designed and managed company databases, built interactive Power BI dashboards tailored to business needs, and delivered automated reporting with actionable analytical insights.
+                                    </div>
+                                    <div class="project-links">
+                                        <span style="color:var(--text-muted); font-size:12px;">Power BI · Python · Pandas · SQL Server · Excel</span>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    `
+                },
+                {
+                    type: 'command',
+                    text: 'cat projects.json',
+                    delay: 1800
+                },
+                {
+                    type: 'section',
+                    title: '// projects',
+                    content: `
+                        <div class="projects-header">
+                            <h2>Featured Projects</h2>
+                        </div>
+                        <div class="projects-grid">
+                            <article class="project-card">
+                                <div class="project-info">
+                                    <div class="project-title">Danger Zone Mapper</div>
+                                    <div class="project-desc">A cross-platform mobile app that lets users pin and avoid real-time danger zones on a live map. Sends push notifications when users enter flagged areas.</div>
+                                    <div class="project-links">
+                                        <a href="#" class="link-github">GitHub</a>
+                                        <a href="#" class="link-demo">Demo</a>
+                                    </div>
+                                </div>
+                            </article>
+                            <article class="project-card">
+                                <div class="project-info">
+                                    <div class="project-title">Ad Management Platform</div>
+                                    <div class="project-desc">A full-featured web platform for creating, managing, and tracking ad campaigns — integrated with Google Analytics for real-time performance monitoring.</div>
+                                    <div class="project-links">
+                                        <a href="#" class="link-github">GitHub</a>
+                                        <a href="#" class="link-demo">Demo</a>
+                                    </div>
+                                </div>
+                            </article>
+                            <article class="project-card">
+                                <div class="project-info">
+                                    <div class="project-title">BI Dashboard Suite</div>
+                                    <div class="project-desc">Interactive Power BI dashboards built for executive reporting — turning raw SQL data into actionable business insights with automated data pipelines.</div>
+                                    <div class="project-links">
+                                        <a href="#" class="link-github">GitHub</a>
+                                        <a href="#" class="link-demo">Demo</a>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    `
+                },
+                {
+                    type: 'command',
+                    text: 'find . -name "contact*"',
+                    delay: 1800
+                },
+                {
+                    type: 'section',
+                    title: '// contact',
+                    content: `
+                        <div class="social-header">
+                            <h2>Connect With Me</h2>
+                        </div>
+                        <div class="social-section">
+                            <ul class="social-list">
+                                <li><a href="https://github.com/MannaiLouay" target="_blank" rel="noopener noreferrer">GitHub — MannaiLouay</a></li>
+                                <li><a href="https://www.linkedin.com/in/mannai-louay" target="_blank" rel="noopener noreferrer">LinkedIn — Mannai Louay</a></li>
+                                <li><a href="mailto:mannai.louay@hotmail.com">Email — mannai.louay@hotmail.com</a></li>
+                                <li><span style="color:var(--text-muted)">Location — Tunis, Tunisia 🇹🇳</span></li>
+                            </ul>
+                        </div>
+                    `
+                },
+                {
+                    type: 'command',
+                    text: 'echo "Thanks for visiting!"',
+                    delay: 1800
+                },
+                {
+                    type: 'section',
+                    title: '// end',
+                    content: `
+                        <div class="thanks-section">
+                            <p>Thanks for reading through my portfolio. I'm open to full-time roles, freelance projects, and interesting collaborations — don't hesitate to reach out.</p>
+                        </div>
+                        <footer class="terminal-footer">
+                            <p>© 2025 Louay Mannai · Built with ♥ from Tunis, Tunisia</p>
+                        </footer>
+                    `
+                }
+            ];
+
+            this.init();
+        }
+
+        init() {
+            this.setupScrollToTop();
+            this.startAnimation();
+        }
+
+        setupScrollToTop() {
+            window.addEventListener('scroll', () => {
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+                if (scrollTop > this.scrollThreshold) {
+                    this.scrollToTopBtn.classList.add('visible');
+                    if (!this.scrollToTopBtn.classList.contains('pulse')) {
+                        this.scrollToTopBtn.classList.add('pulse');
+                        setTimeout(() => {
+                            this.scrollToTopBtn.classList.remove('pulse');
+                        }, 4000);
+                    }
+                } else {
+                    this.scrollToTopBtn.classList.remove('visible');
+                    this.scrollToTopBtn.classList.remove('pulse');
+                }
+            });
+
+            this.scrollToTopBtn.addEventListener('click', () => this.scrollToTop());
+            this.scrollToTopBtn.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    this.scrollToTop();
+                }
+            });
+        }
+
+        scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            setTimeout(() => {
+                const skipLink = document.querySelector('.skip-link');
+                if (skipLink) skipLink.focus();
+            }, 500);
+        }
+
+        async startAnimation() {
+            for (let i = 0; i < this.commands.length; i++) {
+                const command = this.commands[i];
+                if (command.type === 'command') {
+                    await this.typeCommand(command.text);
+                    await this.delay(command.delay || this.commandDelay);
+                } else if (command.type === 'section') {
+                    await this.showSection(command.title, command.content);
+                    await this.delay(this.sectionDelay);
+                }
+            }
+        }
+
+        async typeCommand(text) {
+            const commandDiv = document.createElement('div');
+            commandDiv.className = 'command-line';
+            commandDiv.innerHTML = `
+                <span class="prompt">louay@devmachine</span>
+                <span class="path">~/portfolio</span>
+                <span class="dollar">$</span>
+                <span class="command-text"></span>
+                <span class="cursor" aria-hidden="true">█</span>
+            `;
+
+            this.terminal.appendChild(commandDiv);
+            this.scrollToBottom();
+
+            const commandText = commandDiv.querySelector('.command-text');
+            const cursor      = commandDiv.querySelector('.cursor');
+
+            for (let i = 0; i < text.length; i++) {
+                commandText.textContent += text[i];
+                await this.delay(this.typeSpeed);
+            }
+
+            cursor.style.display = 'none';
+        }
+
+        async showSection(title, content) {
+            const headerDiv = document.createElement('div');
+            headerDiv.className = 'section-header';
+            headerDiv.textContent = title;
+            this.terminal.appendChild(headerDiv);
+
+            const contentDiv = document.createElement('div');
+            contentDiv.className = 'section-content';
+            contentDiv.innerHTML = content;
+            contentDiv.style.opacity = '0';
+            contentDiv.style.transform = 'translateY(14px)';
+            this.terminal.appendChild(contentDiv);
+
+            this.scrollToBottom();
+
+            await this.delay(250);
+            contentDiv.style.transition = 'opacity 0.45s ease, transform 0.45s ease';
+            contentDiv.style.opacity = '1';
+            contentDiv.style.transform = 'translateY(0)';
+        }
+
+        scrollToBottom() {
+            setTimeout(() => {
+                window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+            }, 80);
+        }
+
+        delay(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        new TerminalPortfolio();
+    });
+</script>
+</body>
+</html>

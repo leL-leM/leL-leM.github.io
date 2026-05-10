@@ -1,0 +1,795 @@
+/* CLI Terminal Theme — Black / Gray / White */
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap");
+
+/* ─── Design Tokens ─────────────────────────────────────────── */
+:root {
+  --bg:              #0d0d0d;
+  --bg-secondary:    #111111;
+  --bg-card:         #161616;
+  --bg-hover:        #1e1e1e;
+
+  --border:          #2a2a2a;
+  --border-focus:    #555555;
+
+  --text-primary:    #e8e8e8;
+  --text-secondary:  #888888;
+  --text-muted:      #555555;
+
+  --accent:          #ffffff;
+  --accent-dim:      #cccccc;
+
+  --green:           #aaaaaa;   /* formerly "green" — now mid-gray */
+  --yellow:          #888888;   /* prompt path color */
+  --cursor:          #ffffff;
+
+  --shadow:          rgba(0, 0, 0, 0.7);
+  --shadow-card:     rgba(0, 0, 0, 0.5);
+}
+
+/* ─── Reset ─────────────────────────────────────────────────── */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "JetBrains Mono", "Consolas", "Monaco", monospace;
+  background: var(--bg);
+  color: var(--text-primary);
+  line-height: 1.6;
+  font-size: 14px;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* ─── Skip Link (Accessibility) ─────────────────────────────── */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: var(--accent);
+  color: var(--bg);
+  padding: 8px 12px;
+  text-decoration: none;
+  border-radius: 4px;
+  z-index: 2000;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.skip-link:focus {
+  top: 6px;
+}
+
+/* ─── Site Header / Navigation ──────────────────────────────── */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 500;
+  background: rgba(13, 13, 13, 0.95);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+}
+
+.site-header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.site-logo {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.site-logo .logo-prompt {
+  color: var(--text-muted);
+}
+
+.site-logo .logo-name {
+  color: var(--accent);
+}
+
+.site-logo .logo-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 14px;
+  background: var(--accent);
+  animation: blink 1s infinite;
+  vertical-align: middle;
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.site-nav a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 4px;
+  transition: color 0.2s ease, background 0.2s ease;
+  letter-spacing: 0.03em;
+}
+
+.site-nav a:hover,
+.site-nav a.active {
+  color: var(--text-primary);
+  background: var(--bg-hover);
+}
+
+.nav-status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-left: 8px;
+  padding-left: 16px;
+  border-left: 1px solid var(--border);
+}
+
+.nav-status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #4ade80;
+  animation: pulse-dot 2s infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
+
+/* Hamburger for mobile */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  border-radius: 4px;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 1;
+  transition: all 0.2s ease;
+}
+
+.nav-toggle:hover {
+  border-color: var(--border-focus);
+  color: var(--text-primary);
+}
+
+/* ─── Terminal Container ────────────────────────────────────── */
+.terminal-container {
+  max-width: 1200px;
+  margin: 24px auto;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: 0 8px 40px var(--shadow);
+  min-height: calc(100vh - 120px);
+}
+
+/* ─── Terminal Window Header ────────────────────────────────── */
+.terminal-header {
+  background: var(--bg-secondary);
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid var(--border);
+  border-radius: 8px 8px 0 0;
+}
+
+.terminal-buttons {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.terminal-buttons span {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.btn-close    { background: #ff5f57; }
+.btn-minimize { background: #febc2e; }
+.btn-maximize { background: #28c840; }
+
+.terminal-title {
+  color: var(--text-secondary);
+  font-size: 12px;
+  font-weight: 500;
+  flex: 1;
+  text-align: center;
+}
+
+/* ─── Terminal Body ─────────────────────────────────────────── */
+.terminal-body {
+  padding: 24px 28px;
+  min-height: 600px;
+}
+
+/* ─── Command Line ──────────────────────────────────────────── */
+.command-line {
+  margin: 28px 0 14px 0;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.prompt {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.path {
+  color: var(--text-secondary);
+}
+
+.dollar {
+  color: var(--text-muted);
+  margin-right: 8px;
+}
+
+.command-text {
+  color: var(--accent);
+}
+
+.cursor {
+  color: var(--cursor);
+  animation: blink 1s infinite;
+  font-weight: bold;
+}
+
+@keyframes blink {
+  0%, 50%   { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* ─── Section Headers ───────────────────────────────────────── */
+.section-header {
+  color: var(--text-muted);
+  font-size: 11px;
+  margin: 6px 0 14px 0;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.section-content {
+  margin-bottom: 28px;
+}
+
+/* ─── Profile Section ───────────────────────────────────────── */
+.profile-section {
+  margin: 12px 0 28px 0;
+}
+
+.profile-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 28px 32px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  transition: border-color 0.3s ease;
+}
+
+.profile-card:hover {
+  border-color: var(--border-focus);
+}
+
+.profile-info .name {
+  color: var(--text-primary);
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  letter-spacing: -0.02em;
+}
+
+.profile-info .role {
+  color: var(--text-secondary);
+  font-weight: 500;
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+
+.profile-info .location {
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+/* ─── About Section ─────────────────────────────────────────── */
+.about-section {
+  margin: 12px 0 28px 0;
+}
+
+.about-section p {
+  color: var(--text-secondary);
+  margin-bottom: 14px;
+  line-height: 1.8;
+  max-width: 80ch;
+}
+
+.about-section p .highlight {
+  color: var(--text-primary);
+}
+
+/* ─── Shared Section Title Badge ────────────────────────────── */
+.skills-header h2,
+.projects-header h2,
+.social-header h2 {
+  color: var(--bg);
+  background: var(--text-primary);
+  padding: 4px 12px;
+  border-radius: 3px;
+  font-size: 12px;
+  font-weight: 700;
+  display: inline-block;
+  margin: 14px 0;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* ─── Skills Grid ───────────────────────────────────────────── */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+  margin: 20px 0;
+}
+
+.skill-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 20px;
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+
+.skill-card:hover {
+  border-color: var(--border-focus);
+  transform: translateY(-3px);
+}
+
+.skill-title {
+  color: var(--text-primary);
+  background: var(--bg-hover);
+  border: 1px solid var(--border);
+  padding: 3px 8px;
+  border-radius: 3px;
+  font-size: 11px;
+  font-weight: 700;
+  display: inline-block;
+  margin-bottom: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.skill-list {
+  list-style: none;
+}
+
+.skill-list li {
+  color: var(--text-secondary);
+  padding: 4px 0 4px 18px;
+  position: relative;
+  font-size: 13px;
+  transition: color 0.2s ease;
+}
+
+.skill-list li::before {
+  content: "▸";
+  color: var(--text-muted);
+  position: absolute;
+  left: 0;
+}
+
+.skill-card:hover .skill-list li {
+  color: var(--text-primary);
+}
+
+/* ─── Projects Grid ─────────────────────────────────────────── */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  margin: 20px 0;
+}
+
+.project-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 22px;
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+
+.project-card:hover {
+  border-color: var(--border-focus);
+  transform: translateY(-3px);
+}
+
+.project-title {
+  color: var(--text-primary);
+  background: var(--bg-hover);
+  border: 1px solid var(--border);
+  padding: 3px 8px;
+  border-radius: 3px;
+  font-size: 11px;
+  font-weight: 700;
+  display: inline-block;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.project-desc {
+  color: var(--text-secondary);
+  font-size: 13px;
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+
+.project-links {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.project-links a {
+  padding: 5px 12px;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 12px;
+  transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+}
+
+.project-links a:hover {
+  background: var(--text-primary);
+  color: var(--bg);
+  border-color: var(--text-primary);
+}
+
+/* ─── Contact Section ───────────────────────────────────────── */
+.social-section {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 24px;
+  margin: 20px 0;
+}
+
+.social-list {
+  list-style: none;
+}
+
+.social-list li {
+  padding: 8px 0 8px 20px;
+  position: relative;
+  transition: padding-left 0.2s ease;
+  border-bottom: 1px solid var(--border);
+}
+
+.social-list li:last-child {
+  border-bottom: none;
+}
+
+.social-list li::before {
+  content: "→";
+  color: var(--text-muted);
+  position: absolute;
+  left: 0;
+}
+
+.social-list li:hover {
+  padding-left: 28px;
+}
+
+.social-list a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.social-list a:hover {
+  color: var(--text-primary);
+  text-decoration: underline;
+}
+
+/* ─── Thanks / Closing Section ──────────────────────────────── */
+.thanks-section {
+  margin: 20px 0;
+  padding: 20px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--border-focus);
+  border-radius: 6px;
+}
+
+.thanks-section p {
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* ─── Terminal Footer ───────────────────────────────────────── */
+.terminal-footer {
+  margin-top: 48px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+
+.terminal-footer p {
+  color: var(--text-muted);
+  font-size: 11px;
+}
+
+.terminal-footer a {
+  color: var(--text-secondary);
+  text-decoration: none;
+}
+
+.terminal-footer a:hover {
+  color: var(--text-primary);
+  text-decoration: underline;
+}
+
+/* ─── Scroll-to-Top Button ──────────────────────────────────── */
+.scroll-to-top {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 44px;
+  height: 44px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-focus);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.scroll-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.scroll-to-top:hover {
+  background: var(--bg-hover);
+  border-color: var(--accent);
+  transform: translateY(-3px);
+}
+
+.scroll-to-top::before {
+  content: "↑";
+  color: var(--text-secondary);
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.scroll-to-top:hover::before {
+  color: var(--accent);
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255,255,255,0.1); }
+  50%       { box-shadow: 0 0 0 8px rgba(255,255,255,0); }
+}
+
+.scroll-to-top.pulse {
+  animation: pulse 2s infinite;
+}
+
+/* ─── Responsive: Tablet ────────────────────────────────────── */
+@media (max-width: 900px) {
+  .terminal-container {
+    margin: 16px 16px;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ─── Responsive: Mobile ────────────────────────────────────── */
+@media (max-width: 768px) {
+  .site-nav {
+    display: none;
+    position: absolute;
+    top: 56px;
+    left: 0;
+    right: 0;
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--border);
+    flex-direction: column;
+    align-items: stretch;
+    padding: 8px 0;
+    gap: 0;
+  }
+
+  .site-nav.open {
+    display: flex;
+  }
+
+  .site-nav a {
+    padding: 12px 24px;
+    border-radius: 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .site-nav a:last-child {
+    border-bottom: none;
+  }
+
+  .nav-status {
+    display: none;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+
+  .terminal-container {
+    margin: 12px 8px;
+    border-radius: 6px;
+  }
+
+  .terminal-body {
+    padding: 16px;
+  }
+
+  body {
+    font-size: 13px;
+  }
+
+  .profile-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px 16px;
+  }
+
+  .profile-info .name {
+    font-size: 22px;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-links {
+    flex-direction: column;
+  }
+
+  .command-line {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+  }
+
+  .command-line .dollar {
+    margin-right: 4px;
+  }
+
+  .about-section p {
+    max-width: 100%;
+  }
+}
+
+/* ─── Responsive: Small Mobile ──────────────────────────────── */
+@media (max-width: 480px) {
+  body { font-size: 12px; }
+
+  .site-header-inner {
+    padding: 0 16px;
+  }
+
+  .terminal-header {
+    padding: 10px 12px;
+  }
+
+  .terminal-body {
+    padding: 12px;
+  }
+
+  .profile-card,
+  .skill-card,
+  .project-card,
+  .social-section,
+  .thanks-section {
+    padding: 14px;
+  }
+
+  .profile-info .name {
+    font-size: 18px;
+  }
+
+  .terminal-buttons span {
+    width: 10px;
+    height: 10px;
+  }
+
+  .scroll-to-top {
+    bottom: 16px;
+    right: 16px;
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* ─── High-contrast mode ────────────────────────────────────── */
+@media (prefers-contrast: high) {
+  :root {
+    --bg: #000000;
+    --text-primary: #ffffff;
+    --border: #ffffff;
+    --text-secondary: #cccccc;
+  }
+}
+
+/* ─── Reduced motion ────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+  .cursor { animation: none; }
+}
+
+/* ─── Print ─────────────────────────────────────────────────── */
+@media print {
+  .site-header,
+  .scroll-to-top { display: none; }
+  .terminal-container { border: 1px solid #ccc; box-shadow: none; margin: 0; }
+  body { background: #fff; color: #000; }
+}
+
+/* ─── Large screens ─────────────────────────────────────────── */
+@media (min-width: 1200px) {
+  body { font-size: 15px; }
+  .skills-grid { grid-template-columns: repeat(3, 1fr); }
+  .projects-grid { grid-template-columns: repeat(3, 1fr); }
+}
